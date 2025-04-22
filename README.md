@@ -45,9 +45,7 @@ Standalone/ ├── robot_identification/ │ ├── global/ │ └── 
 
 ### 📸 Structure Diagrams
 
-| Global Structure | Inner Structure |
-|------------------|-----------------|
-| ![](./Images/global_struct.png) | ![](./Images/inner_struct.png) |
+![Dataset Framework](./Images/dataset_structure.pdf)
 
 ---
 
