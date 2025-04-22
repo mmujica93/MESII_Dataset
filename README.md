@@ -45,7 +45,7 @@ Standalone/ ├── robot_identification/ │ ├── global/ │ └── 
 
 ### 📸 Structure Diagrams
 
-![Dataset Framework](./Images/dataset_structure.pdf)
+![Dataset Framework](./Images/dataset_structure.png)
 
 ---
 
