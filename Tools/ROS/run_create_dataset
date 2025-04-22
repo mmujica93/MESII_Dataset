@@ -1,0 +1,113 @@
+#!/bin/bash
+# To run, bash run_create_dataset <path to the source folder of the dataset> <Type of data to convert>
+# Type of data to convert can be: "all", "Robot_identification", "Load_identification", "Sensor_identification", "pHRI"
+# Define paths to the build dir of each sensor
+OUTPUT_DIR=$1/ROS
+DATASET_DIR=$1/Standalone
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+
+
+if [ ! -d "$OUTPUT_DIR" ]; then
+  cd $1
+  mkdir ROS
+  cd $DATASET_DIR &&
+  find . -type d -exec mkdir -p -- $OUTPUT_DIR/{} \; #to create a similar folder tree than the raw data
+fi
+
+
+######### Robot identification #########
+if [ $2 = "Robot_identification" ] || [ $2 = "all" ] ; then
+  cd $OUTPUT_DIR
+  cd Robot_identification/Sequential
+  for postures in $DATASET_DIR/Robot_identification/Sequential/*    # Postures in this case is the different type of trajectories
+  do
+    cd $postures
+    for d in $DATASET_DIR/Robot_identification/Sequential/${postures##*/}/*     # d represents the case of each individual joint
+      do
+      #echo ${d##*/} 
+      echo $d  # Full path
+      rm -df $OUTPUT_DIR/Robot_identification/Sequential/${postures##*/}/${d##*/}
+      python3 $CURRENT_DIR/messii_dataset_converter.py --out $OUTPUT_DIR/Robot_identification/Sequential/${postures##*/}/${d##*/}.bag --path $d --commanded y --measured y --external y --FT_sensor y	
+    done
+  done
+  cd $OUTPUT_DIR
+  cd Robot_identification/Global
+  for postures in $DATASET_DIR/Robot_identification/Global/*    # Postures in this case is the different type of trajectories
+  do
+    cd $postures
+    #echo ${postures##*/} # Full path
+    echo $postures # Full path
+    rm -df $OUTPUT_DIR/Robot_identification/Global/${postures##*/}
+    python3 $CURRENT_DIR/messii_dataset_converter.py --out $OUTPUT_DIR/Robot_identification/Global/${postures##*/}.bag --path $postures --commanded y --measured y --external y --FT_sensor y	
+  done  
+fi
+
+
+######### Load identification #########
+if [ $2 = "Load_identification" ] || [ $2 = "all" ]; then
+  cd $OUTPUT_DIR
+  cd Load_identification/Sequential
+  for postures in $DATASET_DIR/Load_identification/Sequential/*    # Postures in this case is the different type of trajectories
+  do
+    cd $postures
+    for d in $DATASET_DIR/Load_identification/Sequential/${postures##*/}/*     # d represents the case of each individual joint
+      do
+      #echo ${d##*/} 
+      echo $d  # Full path
+      rm -df $OUTPUT_DIR/Load_identification/Sequential/${postures##*/}/${d##*/}
+      python3 $CURRENT_DIR/messii_dataset_converter.py --out $OUTPUT_DIR/Load_identification/Sequential/${postures##*/}/${d##*/}.bag --path $d --commanded y --measured y --external y --FT_sensor y	
+    done
+  done
+  cd $OUTPUT_DIR
+  cd Load_identification/Global
+  for postures in $DATASET_DIR/Load_identification/Global/*    # Postures in this case is the different type of trajectories
+  do
+    cd $postures
+    #echo ${postures##*/} # Full path
+    echo $postures # Full path
+    rm -df $OUTPUT_DIR/Load_identification/Global/${postures##*/}
+    python3 $CURRENT_DIR/messii_dataset_converter.py --out $OUTPUT_DIR/Load_identification/Global/${postures##*/}.bag --path $postures --commanded y --measured y --external y --FT_sensor y	
+  done  
+fi
+
+######### Sensor identification #########
+if [ $2 = "Sensor_identification" ] || [ $2 = "all" ]; then
+  cd $OUTPUT_DIR
+  cd Sensor_identification/Sequential
+  for postures in $DATASET_DIR/Sensor_identification/Sequential/*    # Postures in this case is the different type of trajectories
+  do
+    cd $postures
+    for d in $DATASET_DIR/Sensor_identification/Sequential/${postures##*/}/*     # d represents the case of each individual joint
+      do
+      #echo ${d##*/} 
+      echo $d  # Full path
+      rm -df $OUTPUT_DIR/Sensor_identification/Sequential/${postures##*/}/${d##*/}
+      python3 $CURRENT_DIR/messii_dataset_converter.py --out $OUTPUT_DIR/Sensor_identification/Sequential/${postures##*/}/${d##*/}.bag --path $d --commanded y --measured y --external y --FT_sensor y	
+    done
+  done
+fi
+
+######### pHRI  #########
+if [ $2 = "pHRI" ] || [ $2 = "all" ]; then
+  cd $OUTPUT_DIR
+  cd pHRI/Forces_EE
+  for postures in $DATASET_DIR/pHRI/Forces_EE/*    # Postures in this case is the different type of trajectories
+  do
+    cd $postures
+    #echo ${postures##*/} # Full path
+    echo $postures # Full path
+    rm -df $OUTPUT_DIR/pHRI/Forces_EE/${postures##*/}
+    python3 $CURRENT_DIR/messii_dataset_converter.py --out $OUTPUT_DIR/pHRI/Forces_EE/${postures##*/}.bag --path $postures --commanded y --measured y --external y --FT_sensor y	
+  done  
+  cd $OUTPUT_DIR
+  cd pHRI/Forces_EE_and_joints
+  for postures in $DATASET_DIR/pHRI/Forces_EE_and_joints/*    # Postures in this case is the different type of trajectories
+  do
+    cd $postures
+    #echo ${postures##*/} # Full path
+    echo $postures # Full path
+    rm -df $OUTPUT_DIR/pHRI/Forces_EE_and_joints/${postures##*/}
+    python3 $CURRENT_DIR/messii_dataset_converter.py --out $OUTPUT_DIR/pHRI/Forces_EE_and_joints/${postures##*/}.bag --path $postures --commanded y --measured y --external y --FT_sensor y	
+  done  
+fi

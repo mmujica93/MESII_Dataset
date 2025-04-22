@@ -1,0 +1,42 @@
+# Title
+
+Document that explains the data log files of the MESSII dataset
+
+## Description
+
+### Standalone & RAW:
+
+• jnt_position: <seconds.nanoseconds>   <acc_J1[rad]>   <acc_J2[rad]>   <acc_J3[rad]>   <acc_J4[rad]>   <acc_J5[rad]>   <acc_J6[rad]>   <acc_J7[rad]>   #
+
+• jnt_cmd_position: <seconds.nanoseconds>   <acc_J1[rad]>   <acc_J2[rad]>   <acc_J3[rad]>   <acc_J4[rad]>   <acc_J5[rad]>   <acc_J6[rad]>   <acc_J7[rad]>   #
+
+• jnt_torque: <seconds.nanoseconds>   <torque_J1[N.m]>   <torque_J2[N.m]>   <torque_J3[N.m]>   <torque_J4[N.m]>   <torque_J5[N.m]>   <torque_J6[N.m]>   <torque_J7[N.m]>   #
+
+• jnt_cmd_torque: <seconds.nanoseconds>   <torque_J1[N.m]>   <torque_J2[N.m]>   <torque_J3[N.m]>   <torque_J4[N.m]>   <torque_J5[N.m]>   <torque_J6[N.m]>   <torque_J7[N.m]>   #   
+
+• jnt_ext_torque: <seconds.nanoseconds>   <torque_J1[N.m]>   <torque_J2[N.m]>   <torque_J3[N.m]>   <torque_J4[N.m]>   <torque_J5[N.m]>   <torque_J6[N.m]>   <torque_J7[N.m]>   #
+
+• ft_sensor: <seconds.nanoseconds>   <Fx[N]>   <Fy[N]>   <Fz[N]>   <Tx[N.m]>   <Ty[N.m]>   <Tz[N.m]>   #
+
+
+### Standalone exclusively:
+
+• jnt_speed: <seconds.nanoseconds>   <vel_J1[rad/s]>   <vel_J2[rad/s]>   <vel_J3[rad/s]>   <vel_J4[rad/s]>   <vel_J5[rad/s]>   <vel_J6[rad/s]>   <vel_J7[rad/s]>   #
+
+• jnt_accel: <seconds.nanoseconds>   <acc_J1[rad/s^2]>   <acc_J2[rad/s^2]>   <acc_J3[rad/s^2]>   <acc_J4[rad/s^2]>   <acc_J5[rad/s^2]>   <acc_J6[rad/s^2]>   <acc_J7[rad/s^2]>   #
+
+• jnt_cmd_speed: <seconds.nanoseconds>   <vel_J1[rad/s]>   <vel_J2[rad/s]>   <vel_J3[rad/s]>   <vel_J4[rad/s]>   <vel_J5[rad/s]>   <vel_J6[rad/s]>   <vel_J7[rad/s]>   #
+
+• jnt_cmd_accel: <seconds.nanoseconds>   <acc_J1[rad/s^2]>   <acc_J2[rad/s^2]>   <acc_J3[rad/s^2]>   <acc_J4[rad/s^2]>   <acc_J5[rad/s^2]>   <acc_J6[rad/s^2]>   <acc_J7[rad/s^2]>   #
+
+• Matlab .m file in each trajectory: Contains all of the above in a single data structure
+
+
+### ROS exlusively:
+
+file.bag: ROSBAG containing the information of the standalone dataset with the following topics:
+
+• FT sensor : Containing the three forces and three torques as a wrench vector of the type geometry msgs/WrenchStamped.
+• jointCommanded: Containing the commanded states (position, velocity and torque) for the seven joints as a sensor msgs/JointState type of message.
+• jointMeasured: Containing the measured states (position, velocity and torque) for the seven joints as a sensor msgs/JointState type of message.
+• jointExternal: Containing the external states (position, velocity and torque) for the seven joints as a sensor msgs/JointState type of message. 
