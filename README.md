@@ -22,12 +22,13 @@ This dataset contains data from a **7-DOF KUKA iiwa 14 R820 manipulator** and is
 
 ## 📂 Dataset Description
 
-The dataset includes **three main folders**:
+The dataset includes **Four main folders**:
 - `Standalone/`: Filtered data in `.log` files  
 - `ROS/`: Filtered data in `.rosbag` format  
 - `RAW/`: Raw, unprocessed data
+- `Three Robots/`: Data to compare three different Kuka IIWA robots
 
-Each folder includes subfolders for:
+Each of the three first folders include subfolders for:
 - Robot identification
 - Sensor identification
 - Load identification
@@ -39,11 +40,7 @@ Scenarios include:
 - Full-body interaction (across the kinematic chain)
 - Both **static** and **dynamic** interaction states
 
-**Folder structure examples:**
-
-Standalone/ ├── robot_identification/ │ ├── global/ │ └── sequential/ ├── sensor_identification/ ├── load_identification/ └── pHRI_identification/
-
-### 📸 Structure Diagrams
+**Folder structure :**
 
 ![Dataset Framework](./Images/dataset_structure.png)
 
