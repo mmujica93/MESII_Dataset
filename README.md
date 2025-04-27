@@ -64,7 +64,7 @@ You can download the dataset files below:
 
 ## 📚 Citation
 
-If you use the MESSII dataset in your research, please cite the corresponding publication (details to be added here soon).
+If you use the MESII dataset in your research, please cite the corresponding publication (details to be added here soon).
 
 ---
 
