@@ -1,28 +1,28 @@
-# MESSII Dataset  
-**Manipulator Experimental SyStem Identification for Interaction**
+# MESII Dataset  
+**Manipulator Experimental System Identification for Interaction**
 
 ![Dataset Framework](./Images/dataset_framework.png)
 
 ## 📌 Introduction
 
-Datasets have gained huge importance in recent years due to the rise of big-data and open science. They help:
+Datasets have gained huge importance in recent years due to the rise of big-data and open science. They are mainly a way to give the research community and society in general the tools to both: 
 
-- Validate experiments that are difficult or impossible to replicate.
-- Enable researchers from various fields to build upon existing work.
+- verify publications based on the dataset either because it may have experiments that are difficult, tedious, or impossible to replicate,
+- give the possibility to fellow multidisciplinary researchers to continue the research work and deepen the knowledge on one topic from different points of views.
 
-With this in mind, we present the **MESSII Dataset** for collaborative robotics identification. It provides real measurements of positions and torques of a complex manipulator, allowing for:
+With this in mind, we present the **MESII Dataset** for collaborative robotics identification. It provides real measurements of positions and torques of a complex manipulator, allowing for:
 
 - Testing of filters  
 - Parameter identification techniques  
 - Construction of observers
 
-This dataset contains data from a **7-DOF KUKA iiwa 14 R820 manipulator** and is structured to support experiments in both classical and collaborative settings.
+This dataset contains data from several **7-DOF KUKA iiwa 14 R820 manipulators** and is structured to support experiments in both classical and collaborative settings.
 
 ---
 
 ## 📂 Dataset Description
 
-The dataset includes **Four main folders**:
+The dataset includes **four main folders**:
 - `Standalone/`: Filtered data in `.log` files  
 - `ROS/`: Filtered data in `.rosbag` format  
 - `RAW/`: Raw, unprocessed data
@@ -72,10 +72,10 @@ If you use the MESSII dataset in your research, please cite the corresponding pu
 
 If you have questions or suggestions, feel free to contact us:
 
-**Fabio Ardiani**  
-*PhD Student (2020–2023)*  
-📧 fabio.ardiani@enit.fr  
-🏢 LGP, ENIT – Tarbes
+**Dr. Fabio Ardiani**  
+*State Estimation R&D Technical Lead*  
+📧 fabio.ardiani@nio-robotics.com  
+🏢 Nio Robotics - Toulouse
 
 **Dr. Martin Mujica**  
 *Associate Professor*  
@@ -91,11 +91,13 @@ If you have questions or suggestions, feel free to contact us:
 🏢 LGP, ENIT – Tarbes
 
 **Dr. Alexandre Janot**  
-🏢 ONERA – Toulouse
+🏢 ONERA – Palaiseau
 
 ---
 
 ## 🏢 Institutions
+<img src="./Images/logo-lgp.jpg" height="50">
+<img src="./Images/logo-onera.png" height="50">
+<img src="./Images/logo-laas.jpg" height="50">
 
-| ![LGP](./Images/lgp.jpg) | ![ONERA](./Images/onera.png) | ![LAAS](./Images/laas.jpg) |
-|--------------------------|------------------------------|-----------------------------|
+---
